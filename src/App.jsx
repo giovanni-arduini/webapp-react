@@ -4,14 +4,16 @@ import HomePage from "./pages/HomePage.jsx";
 import MoviePage from "./pages/MoviePage.jsx";
 
 function App() {
-  <BrowserRouter>
-    <Routes>
-      <Route element={<DefaultLayout />}>
-        <Route path="/" element={HomePage} />
-        <Route path="/movies/:id" element={MoviePage} />
-      </Route>
-    </Routes>
-  </BrowserRouter>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<DefaultLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies/:id" element={<MoviePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
