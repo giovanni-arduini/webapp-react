@@ -1,11 +1,24 @@
-import BookCard from "../components/BookCard/BookCard";
+import { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard/MovieCard";
 
 function HomePage() {
-  const book = {
-    id: 1,
-    title: "Il grande Gatsby",
-    author: "H.S.Fitzgerald",
-  };
+  const [movies, setMovies] = useState([]);
+
+  function fetchMovies() {
+    axios
+      .get("http://localhost:3000/api/movies")
+      .then((response) => {
+        setMovies(response.data);
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
   return (
     <>
@@ -17,7 +30,7 @@ function HomePage() {
       <section>
         <div className="container">
           <h1>Elenco film</h1>
-          <BookCard book={book}></BookCard>
+          <MovieCard movie={movie}></MovieCard>
         </div>
       </section>
     </>

@@ -22,7 +22,7 @@ function Nav() {
       <ul className="container">
         {routes.map((item, i) => {
           return (
-            <li id={i}>
+            <li key={i}>
               <NavLink to={item.url}>{item.label}</NavLink>
             </li>
           );
