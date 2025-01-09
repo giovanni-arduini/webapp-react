@@ -4,7 +4,9 @@ function Nav() {
   return (
     <nav>
       <ul>
-        <li></li>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
       </ul>
     </nav>
   );
