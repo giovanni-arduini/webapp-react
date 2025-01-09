@@ -1,15 +1,34 @@
+import { Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 function Nav() {
+  const routes = [
+    {
+      label: "Home",
+      url: "/",
+    },
+    {
+      label: "About",
+      url: "/about",
+    },
+    {
+      label: "Contacts",
+      url: "/contacts",
+    },
+  ];
+
   return (
-    <nav>
-      <h1>ciao</h1>
+    <Navbar>
       <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
+        {routes.map((item, i) => {
+          return (
+            <li id={i}>
+              <NavLink to={item.url}>{item.label}</NavLink>
+            </li>
+          );
+        })}
       </ul>
-    </nav>
+    </Navbar>
   );
 }
 
