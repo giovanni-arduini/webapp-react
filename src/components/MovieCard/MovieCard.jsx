@@ -1,4 +1,4 @@
-function MovieCard({ book }) {
+function MovieCard({ movie }) {
   const { id, title, author, image, abstract } = movie;
 
   return <div>{title}</div>;

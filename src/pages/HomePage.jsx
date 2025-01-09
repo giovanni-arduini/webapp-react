@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard/MovieCard";
+import axios from "axios";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -8,8 +9,9 @@ function HomePage() {
     axios
       .get("http://localhost:3000/api/movies")
       .then((response) => {
-        setMovies(response.data);
-        console.log(response.data);
+        console.log(response.data.movies);
+        setMovies(response.data.movies);
+        console.log(movies);
       })
       .catch((err) => {
         console.log(err);
@@ -29,8 +31,9 @@ function HomePage() {
       </section>
       <section>
         <div className="container">
-          <h1>Elenco film</h1>
-          <MovieCard movie={movie}></MovieCard>
+          {movies.map((movie) => {
+            return <MovieCard key={movie.id} movie={movie}></MovieCard>;
+          })}
         </div>
       </section>
     </>
