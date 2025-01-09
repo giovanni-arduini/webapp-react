@@ -19,7 +19,7 @@ function Nav() {
 
   return (
     <Navbar>
-      <ul>
+      <ul className="container">
         {routes.map((item, i) => {
           return (
             <li id={i}>

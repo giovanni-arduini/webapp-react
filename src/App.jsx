@@ -10,6 +10,8 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies/:id" element={<MoviePage />} />
+          <Route path="/about" />
+          <Route path="/contacts" />
         </Route>
       </Routes>
     </BrowserRouter>
