@@ -9,6 +9,8 @@ function HomePage() {
     axios
       .get("http://localhost:3000/api/movies")
       .then((response) => {
+        if (response.data.success === true) {
+        }
         console.log(response.data.movies);
         setMovies(response.data.movies);
         console.log(movies);
@@ -30,10 +32,12 @@ function HomePage() {
         </div>
       </section>
       <section>
-        <div className="container">
-          {movies.map((movie) => {
-            return <MovieCard key={movie.id} movie={movie}></MovieCard>;
-          })}
+        <div className="container flex">
+          <div className="row">
+            {movies.map((movie) => {
+              return <MovieCard key={movie.id} movie={movie}></MovieCard>;
+            })}
+          </div>
         </div>
       </section>
     </>
