@@ -4,10 +4,11 @@ import axios from "axios";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
 
   function fetchMovies() {
     axios
-      .get("http://localhost:3000/api/movies")
+      .get("http://localhost:3000/api/movies", { params: { title: search } })
       .then((response) => {
         if (response.data.success === true) {
         }
@@ -20,6 +21,12 @@ function HomePage() {
       });
   }
 
+  function searchMovies(e) {
+    e.preventDefault();
+    fetchMovies();
+  }
+  console.log(search);
+
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -27,8 +34,21 @@ function HomePage() {
   return (
     <>
       <section>
-        <div className="container">
-          <h1>Titolo</h1>
+        <div className="container mb-5 d-flex justify-content-between">
+          <div>
+            <h1>Film da vedere</h1>
+          </div>
+          <form onSubmit={searchMovies}>
+            <input
+              type="text"
+              placeholder="Cerca un film"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button type="button" className="btn">
+              Cerca
+            </button>
+          </form>
         </div>
       </section>
       <section>
