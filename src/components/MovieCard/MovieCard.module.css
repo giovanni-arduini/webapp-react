@@ -1,0 +1,16 @@
+.cardBody {
+  background-color: rgba(105, 114, 121, 0.9);
+  color: antiquewhite;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.cardLink {
+  color: rgb(212, 212, 255);
+  text-decoration: none;
+  padding: 1rem;
+
+  margin-top: 1rem;
+}

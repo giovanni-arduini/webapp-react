@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <footer>
+      <footer className="footer">
         <div>Questo è il footer</div>
         <Link to="/" />
       </footer>

@@ -1,5 +1,6 @@
 import { Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import styles from "./Nav.module.css";
 
 function Nav() {
   const routes = [
@@ -18,7 +19,7 @@ function Nav() {
   ];
 
   return (
-    <Navbar>
+    <nav className="navbar bg-blue mb-3">
       <ul className="container">
         {routes.map((item, i) => {
           return (
@@ -28,7 +29,7 @@ function Nav() {
           );
         })}
       </ul>
-    </Navbar>
+    </nav>
   );
 }
 
