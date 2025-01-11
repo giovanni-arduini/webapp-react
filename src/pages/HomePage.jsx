@@ -8,7 +8,10 @@ function HomePage() {
 
   function fetchMovies() {
     axios
-      .get("http://localhost:3000/api/movies", { params: { title: search } })
+      .get(
+        "http://localhost:3000/api/movies"
+        // , { params: { title: search } }
+      )
       .then((response) => {
         if (response.data.success === true) {
         }

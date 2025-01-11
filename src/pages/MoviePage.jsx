@@ -7,10 +7,11 @@ function MoviePage() {
 
   const { id } = useParams();
 
-  function fetchMovie() {
+  function fetchMovie(id) {
     axios
       .get(`http://localhost:3000/api/movies/${id}`)
       .then((res) => {
+        console.log(res);
         setMovie(res.data.movie);
       })
       .catch((err) => {
@@ -19,10 +20,12 @@ function MoviePage() {
   }
 
   useEffect(() => {
-    fetchMovie();
+    fetchMovie(id);
   }, []);
 
   const { director, image, title, abstract, avg_vote, reviews } = movie;
+  // console.log(movie);
+  console.log(reviews);
 
   return (
     <>
@@ -38,9 +41,9 @@ function MoviePage() {
           <strong>Media dei voti:</strong>
           <p>{avg_vote}</p>
 
-          {reviews.map((review) => {
+          {/* {reviews.map((review) => {
             return <p key={review.id}>{review.text}</p>;
-          })}
+          })} */}
         </div>
       </section>
     </>
