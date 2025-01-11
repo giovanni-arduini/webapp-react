@@ -55,7 +55,7 @@ function HomePage() {
           </form>
         </div>
       </section>
-      <section>
+      <section className="mb-5">
         <div className="container flex">
           <div className="row">
             {movies.map((movie) => {

@@ -50,7 +50,7 @@ function MoviePage() {
           <p>{avg_vote}</p>
         </div>
       </section>
-      <section className="container-sm">
+      <section className="container-sm mb-4">
         {/* {reviews.map((review) => {
             return <p key={review.id}>{review.text}</p>;
           })} */}
