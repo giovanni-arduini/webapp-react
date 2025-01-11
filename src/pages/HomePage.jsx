@@ -41,14 +41,15 @@ function HomePage() {
           <div>
             <h1>Film da vedere</h1>
           </div>
-          <form onSubmit={searchMovies}>
+          <form onSubmit={searchMovies} className="d-flex align-items-center">
             <input
+              className="p-1"
               type="text"
               placeholder="Cerca un film"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button type="button" className="btn">
+            <button type="button" className="btn bg-primary text-light mx-3">
               Cerca
             </button>
           </form>

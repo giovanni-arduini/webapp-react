@@ -11,3 +11,7 @@ li a {
   text-decoration: none;
   color: inherit;
 }
+
+.thumb-img {
+  max-height: 300px;
+}

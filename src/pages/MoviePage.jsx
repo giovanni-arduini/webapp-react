@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function MoviePage() {
   const [movie, setMovie] = useState([]);
@@ -29,22 +30,30 @@ function MoviePage() {
 
   return (
     <>
-      <section className="container">
-        <img className="h-25" src={`http://localhost:3000/${image}`} alt="" />
+      <section className="container-sm">
+        <Link to={"/"} className="btn bg-primary text-light mb-3">
+          Torna alla lista completa
+        </Link>
+      </section>
+      <section className="container m-auto d-flex ">
+        <img
+          className="thumb-img h-25"
+          src={`http://localhost:3000/${image}`}
+          alt=""
+        />
 
-        <div className="container">
+        <div className="container d-flex flex-column justify-content-start align-items-baseline">
           <h1>{title}</h1>
           <h3>{director}</h3>
-        </div>
-        <div className="container">
           <p>{abstract}</p>
           <strong>Media dei voti:</strong>
           <p>{avg_vote}</p>
-
-          {/* {reviews.map((review) => {
+        </div>
+      </section>
+      <section className="container-sm">
+        {/* {reviews.map((review) => {
             return <p key={review.id}>{review.text}</p>;
           })} */}
-        </div>
       </section>
     </>
   );
