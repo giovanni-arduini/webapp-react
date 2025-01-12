@@ -4,15 +4,6 @@
   box-sizing: border-box;
 }
 
-/* html {
-  min-height: 100%;
-  position: relative;
-}
-
-body {
-  min-height: 100%;
-} */
-
 ul,
 li,
 li a {
@@ -46,10 +37,8 @@ h6.card-subtitle {
   font-style: italic;
   color: rgb(239, 223, 193);
 }
-/* 
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+
+/* footer {
+  position: relative;
   width: 100%;
 } */
