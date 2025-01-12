@@ -15,7 +15,7 @@ function MovieCard({ movie }) {
         <div className="card-img-overlay p-0">
           <div className={`${styles.cardBody} card-body`}>
             <h5 className="card-title">{title}</h5>
-            <h6 className="card-subtitle">{director}</h6>
+            <h6 className="card-subtitle mb-2">{director}</h6>
             <p className="card-text mb-3">{abstract}</p>
             <Link className={styles.cardLink} to={`/movies/${id}`}>
               Scopri il film
