@@ -39,7 +39,7 @@ function HomePage() {
       <section>
         <div className="container mb-5 d-flex justify-content-between">
           <div>
-            <h1>Film da vedere</h1>
+            <h1 className="main-title">Instant classics</h1>
           </div>
           <form onSubmit={searchMovies} className="d-flex align-items-center">
             <input
