@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
-
+import { StarIcon } from "@heroicons/react/24/outline";
+import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 
 function MoviePage() {
   const [movie, setMovie] = useState(null);
@@ -51,11 +52,17 @@ function MoviePage() {
           <h1>{movie.title}</h1>
           <h3>{movie.director}</h3>
           <p>{movie.abstract}</p>
-          <div>
-            Media dei voti:
-            {voteStars.map((_, i) => {
-              return <;
-            })}
+          <div className="d-flex align-items-center">
+            <div>Media dei voti: </div>
+            <div>
+              {voteStars.map((n, i) => {
+                return n <= movie.avg_vote ? (
+                  <StarSolid key={i} className="star"></StarSolid>
+                ) : (
+                  <StarIcon key={i} className="star"></StarIcon>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
