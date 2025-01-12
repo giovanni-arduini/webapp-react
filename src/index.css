@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100hv;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 /* header {
   margin: 0;
@@ -43,6 +44,14 @@ h1.main-title {
 h6.card-subtitle {
   font-style: italic;
   color: rgb(239, 223, 193);
+}
+
+.titleAvg {
+  margin: 0;
+}
+
+.starAvg {
+  height: 1.2rem;
 }
 
 .star {

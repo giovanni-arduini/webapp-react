@@ -52,24 +52,25 @@ function MoviePage() {
           <h1>{movie.title}</h1>
           <h3>{movie.director}</h3>
           <p>{movie.abstract}</p>
-          <div className="d-flex align-items-center">
-            <div>Media dei voti: </div>
-            <div>
-              {voteStars.map((n, i) => {
-                return n <= movie.avg_vote ? (
-                  <StarSolid key={i} className="star"></StarSolid>
-                ) : (
-                  <StarIcon key={i} className="star"></StarIcon>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </section>
       <section id="reviews_section" className=" mb-4">
         <div className="container ">
-          <div className="d-flex justify-content-around align-items-center">
-            <h4>Media delle recensioni</h4>
+          <div className="d-flex justify-content-start">
+            <div className="d-flex align-items-center mb-3">
+              <h4 className="titleAvg">Media dei voti: </h4>
+
+              {voteStars.map((n, i) => {
+                return n <= movie.avg_vote ? (
+                  <StarSolid
+                    key={i}
+                    className="starAvg text-warning"
+                  ></StarSolid>
+                ) : (
+                  <StarIcon key={i} className="starAvg text-warning"></StarIcon>
+                );
+              })}
+            </div>
             <p>
               {/* Media voti: <span> */}
               {/* { 
@@ -78,7 +79,7 @@ function MoviePage() {
             </p>
           </div>
 
-          <h5>Recensioni degli utenti</h5>
+          <h5 className="mb-3">Recensioni degli utenti</h5>
 
           <div>
             {movie.reviews.length ? (
