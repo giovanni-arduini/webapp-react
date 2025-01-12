@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 
+
 function MoviePage() {
   const [movie, setMovie] = useState(null);
 
@@ -25,6 +26,7 @@ function MoviePage() {
     fetchMovie();
   }, [id]);
 
+  const voteStars = [1, 2, 3, 4, 5];
   // console.log(movie);
   // const { director, image, title, abstract, avg_vote } = movie;
 
@@ -49,8 +51,12 @@ function MoviePage() {
           <h1>{movie.title}</h1>
           <h3>{movie.director}</h3>
           <p>{movie.abstract}</p>
-          {/* <strong>Media dei voti:</strong>
-          <p>{movie.avg_vote}</p> */}
+          <div>
+            Media dei voti:
+            {voteStars.map((_, i) => {
+              return <;
+            })}
+          </div>
         </div>
       </section>
       <section id="reviews_section" className=" mb-4">
@@ -58,7 +64,10 @@ function MoviePage() {
           <div className="d-flex justify-content-around align-items-center">
             <h4>Media delle recensioni</h4>
             <p>
-              Media voti: <span>{movie.avg_vote}</span>
+              {/* Media voti: <span> */}
+              {/* { 
+                {movie.avg_vote}
+}</span> */}
             </p>
           </div>
 
