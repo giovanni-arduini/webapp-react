@@ -20,4 +20,11 @@ li a {
   max-height: 400px;
   overflow: hidden;
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.card:hover .card-body {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
