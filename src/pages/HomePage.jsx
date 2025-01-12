@@ -8,10 +8,7 @@ function HomePage() {
 
   function fetchMovies() {
     axios
-      .get(
-        "http://localhost:3000/api/movies"
-        // , { params: { title: search } }
-      )
+      .get("http://localhost:3000/api/movies", { params: { title: search } })
       .then((response) => {
         if (response.data.success === true) {
         }
@@ -28,7 +25,7 @@ function HomePage() {
     e.preventDefault();
     fetchMovies();
   }
-  console.log(search);
+  // console.log(search);
 
   useEffect(() => {
     fetchMovies();
