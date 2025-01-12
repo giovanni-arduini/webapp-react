@@ -12,7 +12,9 @@ function DefaultLayout() {
       <main className="container">
         <Outlet />
       </main>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
