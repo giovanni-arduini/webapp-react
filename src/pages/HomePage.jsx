@@ -56,8 +56,11 @@ function HomePage() {
         </div>
       </section>
       <section className="mb-5">
-        <div className="container flex">
-          <div className="row">
+        <div className="container flex ">
+          <div
+            className="row row-gap-4
+          "
+          >
             {movies.map((movie) => {
               return <MovieCard key={movie.id} movie={movie}></MovieCard>;
             })}

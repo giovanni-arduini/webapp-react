@@ -5,8 +5,8 @@ function MovieCard({ movie }) {
   const { id, title, director, image, abstract } = movie;
 
   return (
-    <div className=" col-4 gx-5 ">
-      <div className="card  h-100 text-white position-relative">
+    <div className=" col-3 gx-5 ">
+      <div className="card h-100 text-white position-relative">
         <img src={image} className="card-img object-fit-cover h-100" />
         <div className="card-img-overlay p-0 ">
           <div className={("card-body", styles.cardBody)}>
