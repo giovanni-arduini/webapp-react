@@ -2,13 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ReviewCard from "../components/ReviewCard/ReviewCard";
 
 function MoviePage() {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   const { id } = useParams();
 
-  function fetchMovie(id) {
+  function fetchMovie() {
     axios
       .get(`http://localhost:3000/api/movies/${id}`)
       .then((res) => {
@@ -21,41 +22,57 @@ function MoviePage() {
   }
 
   useEffect(() => {
-    fetchMovie(id);
-  }, []);
+    fetchMovie();
+  }, [id]);
 
-  const { director, image, title, abstract, avg_vote, reviews } = movie;
   // console.log(movie);
-  console.log(reviews);
+  // const { director, image, title, abstract, avg_vote } = movie;
 
-  return (
+  // const reviews = movie.reviews;
+  // console.log(reviews);
+
+  return movie ? (
     <>
-      <section className="container-sm">
+      <section className="container-sm ">
         <Link to={"/"} className="btn bg-primary text-light mb-3">
           Torna alla lista completa
         </Link>
       </section>
-      <section className="container m-auto d-flex ">
+      <section className="container m-auto d-flex mb-4">
         <img
           className="thumb-img h-25"
-          src={`http://localhost:3000/${image}`}
+          src={`http://localhost:3000/${movie.image}`}
           alt=""
         />
 
-        <div className="container d-flex flex-column justify-content-start align-items-baseline">
-          <h1>{title}</h1>
-          <h3>{director}</h3>
-          <p>{abstract}</p>
+        <div className="container d-flex flex-column">
+          <h1>{movie.title}</h1>
+          <h3>{movie.director}</h3>
+          <p>{movie.abstract}</p>
           <strong>Media dei voti:</strong>
-          <p>{avg_vote}</p>
+          <p>{movie.avg_vote}</p>
         </div>
       </section>
-      <section className="container-sm mb-4">
-        {/* {reviews.map((review) => {
-            return <p key={review.id}>{review.text}</p>;
-          })} */}
+      <section id="reviews_section" className=" mb-4">
+        <div className="container">
+          <h4>Media delle recensioni</h4>
+          <h5>Recensioni degli utenti</h5>
+          <div>
+            {movie.reviews.length ? (
+              <ul className="container">
+                {movie.reviews.map((review) => (
+                  <ReviewCard review={review} key={review.id} />
+                ))}
+              </ul>
+            ) : (
+              <div>Nessuna recensione per questo film</div>
+            )}
+          </div>
+        </div>
       </section>
     </>
+  ) : (
+    <div>Loading...</div>
   );
 }
 
