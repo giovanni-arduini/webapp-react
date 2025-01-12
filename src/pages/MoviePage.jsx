@@ -49,14 +49,21 @@ function MoviePage() {
           <h1>{movie.title}</h1>
           <h3>{movie.director}</h3>
           <p>{movie.abstract}</p>
-          <strong>Media dei voti:</strong>
-          <p>{movie.avg_vote}</p>
+          {/* <strong>Media dei voti:</strong>
+          <p>{movie.avg_vote}</p> */}
         </div>
       </section>
       <section id="reviews_section" className=" mb-4">
-        <div className="container">
-          <h4>Media delle recensioni</h4>
+        <div className="container ">
+          <div className="d-flex justify-content-around align-items-center">
+            <h4>Media delle recensioni</h4>
+            <p>
+              Media voti: <span>{movie.avg_vote}</span>
+            </p>
+          </div>
+
           <h5>Recensioni degli utenti</h5>
+
           <div>
             {movie.reviews.length ? (
               <ul className="container">
