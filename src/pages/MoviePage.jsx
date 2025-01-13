@@ -94,7 +94,7 @@ function MoviePage() {
             )}
           </div>
         </div>
-        <FormReview />
+        <FormReview id={id} onSuccess={fetchMovie} />
       </section>
     </>
   ) : (
