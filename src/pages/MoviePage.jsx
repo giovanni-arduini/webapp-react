@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
+import FormReview from "../components/FormReview/FormReview";
 
 function MoviePage() {
   const [movie, setMovie] = useState(null);
@@ -36,7 +37,7 @@ function MoviePage() {
 
   return movie ? (
     <>
-      <section className="container-sm ">
+      <section className="container">
         <Link to={"/"} className="btn bg-primary text-light mb-3">
           Torna alla lista completa
         </Link>
@@ -93,6 +94,7 @@ function MoviePage() {
             )}
           </div>
         </div>
+        <FormReview />
       </section>
     </>
   ) : (
