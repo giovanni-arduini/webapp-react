@@ -19,8 +19,8 @@ function Nav() {
 
   return (
     <>
-      <nav className={`${styles.nav} navbar navbar-expand-lg mb-4`}>
-        <div className="container-fluid">
+      <nav className={`${styles.nav}  navbar navbar-expand-lg mb-4`}>
+        <div className="container-fluid ">
           <a className="navbar-brand" href="/">
             <img src="http://localhost:3000/logoipsum-338.svg" alt="" />
           </a>

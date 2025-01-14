@@ -6,6 +6,9 @@ import AboutPage from "./pages/AboutPage.jsx";
 import GlobalContext from "./Context/GlobalContext.js";
 import { useState } from "react";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Important: bundle includes Popper.js
+
 function App() {
   const [isLoading, setIsLoading] = useState(false);
 
