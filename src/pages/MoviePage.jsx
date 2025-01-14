@@ -45,7 +45,7 @@ function MoviePage() {
   return movie ? (
     <>
       <section className="container">
-        <Link to={"/"} className="btn bg-primary text-light mb-3">
+        <Link to={"/"} className="btn btn-sm btn-outline-secondary mb-3">
           Torna alla lista completa
         </Link>
       </section>

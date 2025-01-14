@@ -14,6 +14,7 @@ function FormReview({ id, onSuccess = () => {} }) {
 
   const [formData, setFormData] = useState(initialFormData);
   const [isFormValid, setIsFormValid] = useState(true);
+
   const { setIsLoading } = useContext(GlobalContext);
 
   function charCounter(e) {
@@ -33,15 +34,15 @@ function FormReview({ id, onSuccess = () => {} }) {
 
     //validazione
 
-    // if (
-    //   !formData.name ||
-    //   !formData.vote ||
-    //   formData.vote < 1 ||
-    //   formData.vote > 5
-    // ) {
-    //   setIsFormValid(false);
-    //   return;
-    // }
+    if (
+      !formData.name ||
+      !formData.vote ||
+      formData.vote < 1 ||
+      formData.vote > 5
+    ) {
+      setIsFormValid(false);
+      return;
+    }
 
     setIsLoading(true);
 
@@ -51,7 +52,7 @@ function FormReview({ id, onSuccess = () => {} }) {
         setFormData(initialFormData), onSuccess();
       })
       .catch((err) => console.log(err));
-    setIsFormValid(false);
+    setIsFormValid(true);
     setIsLoading(false);
   }
 
@@ -109,7 +110,7 @@ function FormReview({ id, onSuccess = () => {} }) {
             {isFormValid === false && (
               <div className="text-danger">I dati non sono validi</div>
             )}
-            <button className="btn btn-primary ms-auto" type="submit">
+            <button className="btn btn-outline-secondary ms-auto" type="submit">
               Invia recensione
             </button>
           </div>
