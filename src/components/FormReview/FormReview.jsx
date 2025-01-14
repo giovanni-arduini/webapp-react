@@ -8,7 +8,16 @@ const initialFormData = {
 };
 
 function FormReview({ id, onSuccess = () => {} }) {
+  const [charCount, setCharCount] = useState(0);
+  const charLimit = 400;
+
   const [formData, setFormData] = useState(initialFormData);
+  const [isFormValid, setIsFormValid] = useState(true);
+
+  function charCounter(e) {
+    console.log("char");
+    setCharCount(e.target.value.length);
+  }
 
   function onFormChange(e) {
     console.log("Change");
@@ -19,6 +28,18 @@ function FormReview({ id, onSuccess = () => {} }) {
 
   function storeReview(e) {
     e.preventDefault();
+
+    //validazione
+
+    if (
+      !formData.name ||
+      !formData.vote ||
+      formData.name < 1 ||
+      formData.name > 5
+    ) {
+      setIsFormValid(false);
+      return;
+    }
 
     axios
       .post(`http://localhost:3000/api/movies/${id}/reviews`, formData)
@@ -38,7 +59,7 @@ function FormReview({ id, onSuccess = () => {} }) {
           <input
             name="name"
             value={formData.name}
-            onChange={onFormChange}
+            onChange={(onFormChange, charCounter)}
             type="username"
             className="form-control"
             id="exampleFormControlInput1"
@@ -51,13 +72,17 @@ function FormReview({ id, onSuccess = () => {} }) {
           </label>
           <textarea
             name="text"
+            maxLength={charLimit}
             value={formData.text}
             onChange={onFormChange}
             className="form-control"
             id="exampleFormControlTextarea1"
-            placeholder="Max 1000 caratteri"
+            placeholder="Max 400 caratteri"
             rows="3"
           ></textarea>
+          <span>
+            {charCount}/{charLimit}
+          </span>
         </div>
         <select
           name="vote"
@@ -73,10 +98,15 @@ function FormReview({ id, onSuccess = () => {} }) {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <div className="col-12">
-          <button className="btn btn-primary" type="submit">
-            Invia recensione
-          </button>
+        <div>
+          <div className="d-flex ">
+            {isFormValid === false && (
+              <div className="text-danger">I dati non sono validi</div>
+            )}
+            <button className="btn btn-primary ms-auto" type="submit">
+              Invia recensione
+            </button>
+          </div>
         </div>
       </form>
     </div>
