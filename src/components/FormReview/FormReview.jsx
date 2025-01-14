@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import GlobalContext from "../../Context/GlobalContext";
 
 const initialFormData = {
   text: "",
@@ -13,6 +14,7 @@ function FormReview({ id, onSuccess = () => {} }) {
 
   const [formData, setFormData] = useState(initialFormData);
   const [isFormValid, setIsFormValid] = useState(true);
+  const { setIsLoading } = useState(GlobalContext);
 
   function charCounter(e) {
     console.log("char");
@@ -41,12 +43,16 @@ function FormReview({ id, onSuccess = () => {} }) {
       return;
     }
 
+    setIsLoading(true);
+
     axios
       .post(`http://localhost:3000/api/movies/${id}/reviews`, formData)
       .then((res) => {
         setFormData(initialFormData), onSuccess();
       })
       .catch((err) => console.log(err));
+    setIsFormValid(false);
+    setIsLoading(false);
   }
 
   return (

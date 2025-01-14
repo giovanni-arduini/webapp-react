@@ -1,18 +1,22 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 import FormReview from "../components/FormReview/FormReview";
+import GlobalContext from "../Context/GlobalContext";
 
 function MoviePage() {
   const [movie, setMovie] = useState(null);
+  const { setIsLoading } = useContext(GlobalContext);
 
   const { id } = useParams();
 
   function fetchMovie() {
+    setIsLoading(true);
+
     axios
       .get(`http://localhost:3000/api/movies/${id}`)
       .then((res) => {
@@ -21,6 +25,9 @@ function MoviePage() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
