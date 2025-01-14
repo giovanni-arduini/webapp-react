@@ -1,7 +1,7 @@
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100hv;
+  min-height: 100vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 /* header {
@@ -10,6 +10,7 @@
 
 main {
   flex-grow: 1;
+  position: relative;
 }
 
 ul,
