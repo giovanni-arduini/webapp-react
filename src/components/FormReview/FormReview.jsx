@@ -65,7 +65,7 @@ function FormReview({ id, onSuccess = () => {} }) {
           <input
             name="name"
             value={formData.name}
-            onChange={(onFormChange, charCounter)}
+            onChange={onFormChange}
             type="username"
             className="form-control"
             id="exampleFormControlInput1"
