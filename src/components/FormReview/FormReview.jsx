@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import GlobalContext from "../../Context/GlobalContext";
 
@@ -14,7 +14,7 @@ function FormReview({ id, onSuccess = () => {} }) {
 
   const [formData, setFormData] = useState(initialFormData);
   const [isFormValid, setIsFormValid] = useState(true);
-  const { setIsLoading } = useState(GlobalContext);
+  const { setIsLoading } = useContext(GlobalContext);
 
   function charCounter(e) {
     console.log("char");
@@ -33,15 +33,15 @@ function FormReview({ id, onSuccess = () => {} }) {
 
     //validazione
 
-    if (
-      !formData.name ||
-      !formData.vote ||
-      formData.name < 1 ||
-      formData.name > 5
-    ) {
-      setIsFormValid(false);
-      return;
-    }
+    // if (
+    //   !formData.name ||
+    //   !formData.vote ||
+    //   formData.vote < 1 ||
+    //   formData.vote > 5
+    // ) {
+    //   setIsFormValid(false);
+    //   return;
+    // }
 
     setIsLoading(true);
 
